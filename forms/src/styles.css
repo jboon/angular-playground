@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input.textfield {
+  @apply border-2 border-black;
+}
+
+label:has(+ input.textfield):after {
+  content:" ";
+}
+
+label:has(+ input.textfield[required]):after {
+  content:"* ";
+  color: red;
+}
+
+button.disabled {
+  @apply bg-red-500 text-red-500;
+}
+
+button.enabled {
+  @apply  bg-green-500 text-black;
+}
+
+button {
+  @apply border-2 border-black border-solid px-2 rounded-md;
+}

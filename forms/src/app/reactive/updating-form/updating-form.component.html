@@ -1,0 +1,27 @@
+<app-center-view>
+  <app-border>
+    <div class="p-4 bg-yellow-50">
+      <h1 class="pb-4 text-xl text-slate-400">Reactive Form - Updating Form Values</h1>
+      <form [formGroup]="form" (ngSubmit)="onSubmitModelBased()" class="flex flex-col gap-4">
+        <p>
+          <label class="required">First Name</label>
+          <input class="textfield" type="text" formControlName="firstName">
+        </p>
+        <p>
+          <label class="required">Email Address</label>
+          <input class="textfield" type="text" formControlName="emailAddress" required>
+        </p>
+        <p>
+          <label>Password</label>
+          <input class="textfield" type="password" formControlName="password" required>
+        </p>
+        <p class="flex flex-row gap-2">
+          <button [ngClass]="{'enabled': form.valid}" class="disabled" type="submit" [disabled]="!form.valid">Submit</button>
+          <button (click)="partialUpdate()" class="enabled">Partial Update</button>
+          <button (click)="fullUpdate()" class="enabled">Full Update</button>
+          <button (click)="reset()" class="enabled">Reset</button>
+        </p>
+      </form>
+    </div>
+  </app-border>
+</app-center-view>

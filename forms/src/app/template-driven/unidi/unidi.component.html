@@ -1,0 +1,27 @@
+<app-center-view>
+  <app-border>
+    <div class="p-4 bg-yellow-50">
+      <h1 class="pb-4 text-xl text-slate-400">Template-driven Form - Uni-directional Binding</h1>
+      <form #myForm="ngForm" (ngSubmit)="onSubmitTemplateBased(myForm.value)" class="flex flex-col gap-4">
+        <p>
+          <label class="required">First Name</label>
+          <input class="textfield" type="text" name="first_name"
+                 [ngModel]="user.firstName">
+        </p>
+        <p>
+          <label class="required">Email Address</label>
+          <input class="textfield" type="text" name="email_address"
+                 [ngModel]="user.emailAddress" required>
+        </p>
+        <p>
+          <label>Password</label>
+          <input class="textfield" type="password" name="password"
+                 [ngModel]="user.password" required>
+        </p>
+        <p>
+          <button [ngClass]="{'enabled': myForm.valid}" class="disabled" type="submit" [disabled]="!myForm.valid">Submit</button>
+        </p>
+      </form>
+    </div>
+  </app-border>
+</app-center-view>
