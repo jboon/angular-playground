@@ -21,18 +21,18 @@ import {
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
 })
 export class ChildFormComponent implements OnInit {
-  childForm: any
+  form: any
 
   constructor(public parentForm: FormGroupDirective) {
     // ngOnInit must be use here, the FormGroupDirective will not be initialized yet in the constructor
   }
 
   ngOnInit(): void {
-    this.childForm = this.parentForm.form;
-    this.childForm.addControl(
+    this.form = this.parentForm.form;
+    this.form.addControl(
         'address',
         new FormGroup({
-          streetName: new FormControl(null, Validators.required),
+          streetName: new FormControl("Bosweg", Validators.required),
           houseNumber: new FormControl(null, Validators.required)
         })
     );
